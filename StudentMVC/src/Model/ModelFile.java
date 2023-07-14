@@ -49,7 +49,7 @@ public class ModelFile  implements iGetModel {
         return students;
     }
 
-    public void saveAllStudentToFile(List<Student> students)
+    public static void saveAllStudentToFile(List<Student> students)
     {
         try(FileWriter fw = new FileWriter(fileName, true))
         {

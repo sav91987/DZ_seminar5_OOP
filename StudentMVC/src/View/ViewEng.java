@@ -8,18 +8,18 @@ import java.util.Scanner;
 import Controller.iGetView;
 import Model.Student;
 
-public class View implements iGetView {
+public class ViewEng implements iGetView {
 
     public void printAllStudents(List<Student> students) {
-        System.out.println("===================== список студентов ========================");
+        System.out.println("========================== student list =================================");
         for (Student stud : students) {
             System.out.println(stud);
         }
-        System.out.println("===============================================================");
+        System.out.println("========================================================================");
     }
 
     public void printAllStudentsHM(HashMap<Long, Student> students) {
-        System.out.println("===================== список студентов ========================");
+        System.out.println("========================== student list =================================");
         for (Map.Entry<Long, Student> stud : students.entrySet()) {
             System.out.println(stud);
         }
@@ -28,21 +28,21 @@ public class View implements iGetView {
 
     @Override
     public String prompt() {
-        System.out.println("Введите команду");
+
+        System.out.println("Input command: ");
         Scanner in = new Scanner(System.in);
         return in.nextLine();
-
     }
 
     @Override
     public List<Student> deleteStudent(List<Student> students) {
-        System.out.println("Введите ID студента:");
+        System.out.println("Input student ID:");
         Scanner in = new Scanner(System.in);
         int id = in.nextInt();
         int count = 0;
         int indexForDel = 0;
         int match = 0;
-        for (Student stud: students){
+        for (Student stud : students) {
 
             if (id == stud.getId()) {
                 indexForDel = count;
@@ -50,19 +50,23 @@ public class View implements iGetView {
             }
             count++;
         }
-       
-        if (match!=0) {
+
+        if (match != 0) {
             students.remove(indexForDel);
-        }
-        else {
-            System.out.println("ID" + id + "не найден!");
+        } else {
+            System.out.println("ID " + id + " not found!");
         }
         return students;
     }
 
     @Override
+    public void printGoodBye() {
+        System.out.println("Exit from programm!");
+    }
+
+    @Override
     public HashMap<Long, Student> deleteStudentHM(HashMap<Long, Student> students) {
-        System.out.println("Введите ID студента:");
+        System.out.println("Input student ID:");
         Scanner in = new Scanner(System.in);
         int id = in.nextInt();
         Long indexForDel = 0L;
@@ -78,14 +82,9 @@ public class View implements iGetView {
         if (match != 0) {
             students.remove(indexForDel);
         } else {
-            System.out.println("ID " + id + " не найден!");
+            System.out.println("ID " + id + " not found!");
         }
         return students;
-    }
-
-    @Override
-    public void printGoodBye() {
-        System.out.println("Выход из программы");
     }
 
 }

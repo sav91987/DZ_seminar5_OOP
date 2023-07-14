@@ -3,6 +3,10 @@ package Model;
 import java.util.Scanner;
 
 public class LanguageMenu {
+    /**
+     * Метод для выбора языка меню
+     * @return true для русского языка меню, false ждя английского
+     */
     public static boolean chooseLanguage() {
     
         System.out.println("Выберите язык / Choose language:\n\t1. 'RU'\n\t2. 'EN'");

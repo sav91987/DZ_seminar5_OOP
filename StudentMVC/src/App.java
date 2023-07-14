@@ -17,6 +17,8 @@ import View.ViewEng;
 public class App {
     public static void main(String[] args) throws Exception {
 
+
+
         List<Student> students = new ArrayList<Student>();
         Student s1 = new Student("Сергей", 21, 101);
         Student s2 = new Student("Андрей", 22, 111);
@@ -43,6 +45,7 @@ public class App {
         // fModel.saveAllStudentToFile(students);
 
         // iGetModel modelFile = fModel;
+
         boolean flagCS = ChooseStorage.chooseStorage();
 
         iGetModel<List<Student>> modelL = new ModelList(students);
@@ -52,6 +55,7 @@ public class App {
 
         iGetView view;
 
+        //Если правда, то работаем с View(руский язык), иначе ViewEng(английский язык)
         if (flag) {
             view = new View();
         } else {
@@ -60,10 +64,10 @@ public class App {
 
         Controller control;
 
+        //Констуктор включает две модели для List<Student> и HashMap<Long, Student>
         control = new Controller(modelL, modelHM, view);
 
-        // control.update();
-
+        
         control.run(flagCS);
 
     }

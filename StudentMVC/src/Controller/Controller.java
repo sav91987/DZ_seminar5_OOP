@@ -3,9 +3,6 @@ package Controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
-
-import Model.ModelFile;
 import Model.Student;
 
 public class Controller {
@@ -16,6 +13,11 @@ public class Controller {
     private List<Student> students = new ArrayList<>();
     private HashMap<Long, Student> studentsHM = new HashMap<>();
 
+    /**
+     * @param modelL  - модель для получение List студентов
+     * @param modelHM - модель для получение HashMap студентов
+     * @param view    - View
+     */
     public Controller(iGetModel<List<Student>> modelL, iGetModel<HashMap<Long, Student>> modelHM, iGetView view) {
         this.modelL = modelL;
         this.modelHM = modelHM;
@@ -51,6 +53,11 @@ public class Controller {
     // //view.printAllStudents(model.getAllStudents());
     // }
 
+    /**
+     * Метод запуска меню программы и выполнения функций
+     * 
+     * @param flag если true, то работаем с List, иначе с HashMap
+     */
     public void run(boolean flag) {
         Command com = Command.NONE;
         boolean getNewIteration = true;
@@ -81,12 +88,10 @@ public class Controller {
                     } else {
                         studentsHM = view.deleteStudentHM(studentsHM);
                     }
-                    
+
                 default:
                     break;
             }
-
         }
     }
-
 }

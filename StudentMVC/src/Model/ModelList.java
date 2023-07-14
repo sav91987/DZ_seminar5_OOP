@@ -11,12 +11,9 @@ public class ModelList implements iGetModel<List<Student>> {
         this.students = students;
     }
 
-
-
     @Override
     public List<Student> getAllStudents() {
         return students;
     }
 
-   
 }

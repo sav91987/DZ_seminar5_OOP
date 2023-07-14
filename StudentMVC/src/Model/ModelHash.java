@@ -2,7 +2,6 @@ package Model;
 
 import java.util.HashMap;
 
-
 import Controller.iGetModel;
 
 public class ModelHash implements iGetModel<HashMap<Long, Student>> {
@@ -12,8 +11,7 @@ public class ModelHash implements iGetModel<HashMap<Long, Student>> {
         this.students = students;
     }
 
-    public HashMap<Long, Student> getAllStudents()
-    {
+    public HashMap<Long, Student> getAllStudents() {
         return students;
     }
 }

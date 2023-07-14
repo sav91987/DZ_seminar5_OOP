@@ -42,7 +42,7 @@ public class View implements iGetView {
         int count = 0;
         int indexForDel = 0;
         int match = 0;
-        for (Student stud: students){
+        for (Student stud : students) {
 
             if (id == stud.getId()) {
                 indexForDel = count;
@@ -50,11 +50,10 @@ public class View implements iGetView {
             }
             count++;
         }
-       
-        if (match!=0) {
+
+        if (match != 0) {
             students.remove(indexForDel);
-        }
-        else {
+        } else {
             System.out.println("ID" + id + "не найден!");
         }
         return students;
